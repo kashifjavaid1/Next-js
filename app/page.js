@@ -8,6 +8,7 @@ export default function Home() {
 
    <Header title="First Compoents" sorce="next.svg"/>
    <Header title="Second Compoents" sorce="vercel.svg"/>
+   <Header title="second"/>
    </>
   )
 }
