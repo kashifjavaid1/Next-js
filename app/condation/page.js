@@ -1,62 +1,59 @@
 "use client"
-import { useState } from "react";
+import React, { useState } from 'react';
 
 export default function Condition() {
-  const [students, setStudents] = useState([
+  const [students,setstudent]=useState([
     {
       "Name": "kashif",
-      "rollNumber": 532,
-      "Section": "D"
-    },
-    {
-      "Name": "Ali",
-      "rollNumber": 596,
-      "Section": "E"
-    },
-    {
-      "Name": "umair",
-      "rollNumber": 446,
+      "rollnumber": 123,
       "Section": "A"
     },
     {
-      "Name": "Usama",
-      "rollNumber": 456,
+      "Name": "javaid",
+      "rollnumber": 344,
       "Section": "B"
+    },
+    {
+      "Name": "Ahmad",
+      "rollnumber": 788,
+      "Section": "C"
+    },
+    {
+      "Name": "Umair",
+      "rollnumber": 412,
+      "Section": "D"
     }
-  ]);
+  ])
 
-  const deleteHandler = (studentRollNumber) => {
-    const newStudents = students.filter((student) => {
-      return studentRollNumber !== student.rollNumber;
-    });
-    setStudents(newStudents);
-  };
-
+  const delethandler=(Studentrollnumber)=>{
+       const newstudent=students.filter((student)=>{
+        return student.rollnumber !== Studentrollnumber
+       })
+       setstudent(newstudent)
+  }
   return (
-    <div className="container mx-auto py-12">
-      <table className="min-w-full bg-white border border-gray-300">
+    <>
+      <div className="text-center py-5 text-2xl">Student App</div>
+      <table className="container mx-auto border-collapse border border-gray-800">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Name</th>
-            <th className="py-2 px-4 border-b">RollNumber</th>
-            <th className="py-2 px-4 border-b">Section</th>
-            <th className="py-2 px-4 border-b">Delete</th>
+            <th className="border border-gray-600 p-2">Name</th>
+            <th className="border border-gray-600 p-2">Roll Number</th>
+            <th className="border border-gray-600 p-2">Section</th>
+            <th className="border border-gray-600 p-2">Delete</th>
           </tr>
         </thead>
         <tbody>
           {students.map((item, index) => (
-            <tr key={index}>
-              <td className="text-center py-2 px-4 border-b">{item.Name}</td>
-              <td className="text-center py-2 px-4 border-b">{item.rollNumber}</td>
-              <td className="text-center py-2 px-4 border-b">{item.Section}</td>
-              <td className="text-center py-2 px-4 border-b">
-                <button onClick={() => deleteHandler(item.rollNumber)}>Delete</button>
-              </td>
+            <tr key={index} className="text-center">
+              <td className="border border-gray-600 p-2">{item.Name}</td>
+              <td className="border border-gray-600 p-2">{item.rollnumber}</td>
+              <td className="border border-gray-600 p-2">{item.Section}</td>
+              <td className="border border-gray-600 p-2" onClick={()=>delethandler(item.rollnumber)} ><button>Delete</button></td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
-
