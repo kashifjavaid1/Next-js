@@ -6,9 +6,11 @@ export default function Home() {
     <>
     <Link href={"/condation"}>Condition page</Link>
     <br></br>
+    <Link href={"/github"}>Github</Link>
+    <br></br>
        <Fecth/>
     <br></br>
-  <Form/>
+  {/* <Form/> */}
    {/* <h1 className='text-center py-6'>Home page</h1>
 
    <Header title="First Compoents" sorce="next.svg"/>
