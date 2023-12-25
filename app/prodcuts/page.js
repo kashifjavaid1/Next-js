@@ -19,9 +19,7 @@ export default function page() {
  <br></br>
  <br></br>
  <br></br>
- <br></br>
- <br></br>
- <br></br>
+ 
  <h1>Products</h1>
  <button onClick={clickhandler}>Show prodcut</button>
  {
