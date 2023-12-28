@@ -1,5 +1,5 @@
 "use client"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 export default function page() {
     const [length,setLength]=useState(8)
@@ -7,6 +7,7 @@ export default function page() {
     const [character,setCharacter]=useState(false);
     const [password,setPassword]=useState("");
 
+    // password generate logices
     const passwordgGan=useCallback(()=>{
         let pass=""
         let str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -18,15 +19,24 @@ export default function page() {
         }
         setPassword(pass)
     },[length,number,character,setPassword])
+       
+    //  userefhook
+    const refpassword=useRef(null)
+     const clickboard=useCallback(()=>{
+        refpassword.current?.select();
+        window.navigator.clipboard.writeText(password)
+     },[password])
+
     useEffect(()=>{
 passwordgGan()
-    },[length,number,character])
+    },[length,number,character,passwordgGan])
   return (
  <>
 <div className="py-4 bg-black w-full max-w-md rounded-3xl shadow-2xl mx-auto my-7">
   <div>
     <h1 className="text-center text-white">Password Generator</h1>
   </div>
+  {/* password filed */}
   <div className="text-white">
     <input
       type="text"
@@ -34,10 +44,13 @@ passwordgGan()
       placeholder="Enter your password"
       readOnly
       value={password}
+      ref={refpassword}
     />
-   <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue">
+   <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue" onClick={clickboard}>
   Copy
 </button>
+
+{/* second part lenght */}
   </div>
   <div className="flex items-center py-3">
     <input type="range" 
