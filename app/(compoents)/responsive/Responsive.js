@@ -8,7 +8,7 @@ export default function Responsive() {
           <span>Logo</span>
         </div>
         <div className="py-2">
-          <ul className="flex px-4 p-4" >
+          <ul className="flex" >
            <Link href='/'><li>Home</li></Link>
            <Link href='/'><li>About</li></Link>
            <Link href='/'><li>Contact</li></Link>
