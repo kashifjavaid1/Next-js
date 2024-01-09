@@ -12,7 +12,7 @@ export default function Responsive() {
            <Link href='/'><li>Home</li></Link>
            <Link href='/'><li>About</li></Link>
            <Link href='/'><li>Contact</li></Link>
-           <Link href='/'><li>Service</li></Link>
+
           </ul>
         </div>
         <div>
