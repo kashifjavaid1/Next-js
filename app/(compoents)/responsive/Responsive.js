@@ -17,7 +17,6 @@ export default function Responsive() {
         </div>
         <div>
           <span>
-            <button></button>
           <button>Login</button>
           <button>Sign In</button>
           </span>
